@@ -11,8 +11,26 @@
 
   <body>
     <nav class="navbar navbar-light bg-light">
-      <%= link_to "My Blog", posts_path, class:"navbar-brand" %>
-
+      <%= link_to "My Blog", root_path, class:"navbar-brand" %>
+      <% if user_signed_in? %>
+      <div class="navbar-nav">
+        <div class="nav-item">
+          <%= link_to "Nuevo Post", class: "nav-link d-inline" %>
+        </div>
+        <div class="nav-item">
+          <%= link_to "Salir", destroy_user_session_path, method: :delete, class: "nav-link d-inline" %>
+        </div>
+      </div>
+      <% else %>
+      <div class="navbar-nav">
+        <div class="nav-item">
+          <%= link_to "Registrarse", new_user_registration_path , class:"nav-link d-inline" %>
+        </div>
+        <div class="nav-item">
+          <%= link_to "Ingresar", new_user_session_path, class: "nav-link d-inline"%>
+        </div>
+      </div>
+      <% end %>
     </nav>
     <%= yield %>
   </body>
