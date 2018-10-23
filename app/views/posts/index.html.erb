@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 offset-sm-2">
+      <h1>Posts</h1>
+      <% @posts.each do |post|%>
+      <div class="card">
+        <div class="card-body">
+          <h1>
+            <%= link_to post.title, post_path(post.id), class:"card-title" %>
+          </h1>
+          <h6 class="card-subtitle mb-2 text-muted"><%= post.created_at %></h6>
+          <p class="card-text"><%= post.body %></p>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
