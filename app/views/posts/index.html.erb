@@ -8,7 +8,7 @@
           <h1>
             <%= link_to post.title, post_path(post.id), class:"card-title" %>
           </h1>
-          <h6 class="card-subtitle mb-2 text-muted"><%= post.created_at %></h6>
+          <h6 class="card-subtitle mb-2 text-muted">Creado por <%= post.user.email %> <%= time_ago_in_words(post.created_at) %></h6>
           <p class="card-text"><%= post.body %></p>
         </div>
       </div>

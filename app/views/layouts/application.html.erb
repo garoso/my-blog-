@@ -15,7 +15,7 @@
       <% if user_signed_in? %>
       <div class="navbar-nav">
         <div class="nav-item">
-          <%= link_to "Nuevo Post", class: "nav-link d-inline" %>
+          <%= link_to "Nuevo Post", new_post_path, class: "nav-link d-inline" %>
         </div>
         <div class="nav-item">
           <%= link_to "Salir", destroy_user_session_path, method: :delete, class: "nav-link d-inline" %>
