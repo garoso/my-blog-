@@ -19,6 +19,17 @@ class PostsController < ApplicationController
       render :new
     end
   end
+  def edit
+    @post = Post.find(params[:id])
+  end
+  def update
+    @post = Post.find(params[:id])
+    if @post.update(post_params)
+      redirect_to post_path, success: "El post se edito exitosamente"
+    else
+      render :edit, danger: "No se pudo editar el post"
+    end
+  end
   private
   def post_params
     params.require(:post).permit(:title, :body, :user_id )
