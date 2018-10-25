@@ -14,7 +14,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user = current_user
     if @post.save
-      redirect_to posts_path, notice: "El post se publico exitosamente"
+      redirect_to posts_path, info: "El post se publico exitosamente"
     else
       render :new
     end
