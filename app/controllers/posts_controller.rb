@@ -30,6 +30,12 @@ class PostsController < ApplicationController
       render :edit, danger: "No se pudo editar el post"
     end
   end
+  def destroy
+    post = Post.find(params[:id])
+    post.destroy
+
+    redirect_to posts_path, danger: "Se elimino el post"
+  end
   private
   def post_params
     params.require(:post).permit(:title, :body, :user_id )

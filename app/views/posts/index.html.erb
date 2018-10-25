@@ -12,7 +12,7 @@
           <h6 class="card-subtitle mb-2 text-muted">Creado por <%= post.user.email %> <%= time_ago_in_words(post.created_at) %></h6>
           <p class="card-text"><%= post.body %></p>
           <% if post.user = current_user %>
-          <%= link_to '<i class="fas fa-edit"></i> Editar'.html_safe, edit_post_path(post.id) %> | <%= link_to '<i class="fas fa-trash-alt"></i> Eliminar'.html_safe %>
+          <%= link_to '<i class="fas fa-edit"></i> Editar'.html_safe, edit_post_path(post.id) %> | <%= link_to '<i class="fas fa-trash-alt"></i> Eliminar'.html_safe, post_path(post.id), method: :delete, data: { confirm: "¿Estás seguro de eliminar este post?" }%>
           <% end %>
         </div>
       </div>
