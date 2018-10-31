@@ -6,4 +6,28 @@
       <p><%= @post.body %></p>
     </div>
   </div>
+  <div class="row">
+    <div class="col-sm-8 offset-sm-2">
+      <% @post.comments.each do |comment| %>
+      <div class="card">
+        <div class="card-header">
+          <%= comment.user.email %> comentó hace <%= time_ago_in_words (comment.created_at) %>
+        </div>
+        <div class="card-body">
+          <p class="card-text"> <%= comment.body %></p>
+        </div>
+      </div>
+      <% end %>
+      <br>
+      <% if signed_in? %>
+        <h3>Nuevo Comentario</h3>
+        <%= form_for [@post, @post.comments.build] do |f| %>
+        <div class="form.-group">
+          <%= f.text_area :body, class: "form-control", placeholder: "Agregar comentario" %>
+          <%= f.submit "Comentar", class: "btn btn-primary" %>
+        </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>
