@@ -5,8 +5,10 @@
       <% if @post.errors.any? %>
         <div class="alert alert-danger">
           <ul>
-          <% @post.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
+          <% @post.errors.messages.each do |attr, msg| %>
+            <% msg.each do |val| %>
+              <li><%= val %></li>
+            <% end %>
           <% end %>
           </ul>
         </div>
