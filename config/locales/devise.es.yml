@@ -15,8 +15,11 @@ es:
           attributes:
             email:
               blank: 'el email no puede estar vacio'
+              taken: 'el email ya existe'
             password:
               blank: 'la contraseña no puede estar vacia'
+            password_confirmation:
+              confirmation: 'la validacion de contraseña no coincide'  
         post:
           attributes:
             title:
